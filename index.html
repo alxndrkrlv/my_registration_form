@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация на сайте</title>
     <style>
+        /* Адаптивность для строк с двумя полями */
+max-width: 600px {
+    .form-group[style*="display: flex"] {
+        flex-direction: column;
+        gap: 0;
+    }
+}
         /* Это стили для красоты */
         * {
             box-sizing: border-box;
@@ -354,5 +361,6 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
 
