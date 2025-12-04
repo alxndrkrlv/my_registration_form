@@ -160,40 +160,49 @@
         display: none;
     }
     
-    /* Адаптивность для планшетов и телефонов */
-    max-width: 768px {
-        .container {
-            padding: 25px;
-            margin: 10px;
-        }
-        
-        h1 { font-size: 24px; }
-        h2 { font-size: 20px; }
-        
-        /* На узких экранах делаем строки вертикальными */
-        .form-group.row {
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .form-group.row > div {
-            width: 100%;
-        }
-        
-        /* Увеличиваем чекбокс и радио */
-        .checkbox {
-            font-size: 14px;
-        }
-        
-        .radio-group {
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        input, select, textarea {
-            font-size: 16px; /* Важно для iOS, чтобы не зумилось */
-        }
+/* Адаптивность для планшетов и телефонов */
+max-width: 768px {
+    .container {
+        padding: 25px;
+        margin: 10px;
     }
+    
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    
+    /* На узких экранах делаем строки вертикальными и убираем min-width */
+    .form-group.row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group.row > div {
+        width: 100%;
+        min-width: unset !important; /* Ключевое исправление! */
+    }
+    
+    /* Выравниваем высоту лейблов в строке на мобильных */
+    .form-group.row > div > label {
+        min-height: 24px; /* Фиксированная высота для лейблов */
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+    
+    /* Увеличиваем чекбокс и радио */
+    .checkbox {
+        font-size: 14px;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    input, select, textarea {
+        font-size: 16px;
+    }
+}
     
     max-width: 480px {
         body {
@@ -245,7 +254,7 @@
     <!-- 4. Email и 5. Телефон в одной строке -->
     <div class="form-group" style="display: flex; row: 20px; flex-wrap: wrap;">
         <div style="flex: 1;">
-            <label for="email">Адрес электронной почты *</label>
+            <label for="email">Эл. почта *</label>
             <input type="email" id="email" name="Email" required placeholder="example@mail.com">
         </div>
         <div style="flex: 1;">
@@ -444,6 +453,7 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
 
 
