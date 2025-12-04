@@ -240,16 +240,16 @@ max-width: 768px {
     </div>
 
     <!-- 2. Возраст и 3. Дата рождения в одной строке -->
-    <div class="form-group" style="display: flex; row: 20px; flex-wrap: wrap;">
-        <div style="flex: 1;">
-            <label for="age">Возраст *</label>
-            <input type="number" id="age" name="Возраст" min="16" max="100" required placeholder="25">
-        </div>
-        <div style="flex: 1;">
-            <label for="birthdate">Дата рождения *</label>
-            <input type="date" id="birthdate" name="Дата_рождения" required>
-        </div>
+<div class="form-group row"> <!-- Используем класс, а не style="..." -->
+    <div>
+        <label for="age">Возраст *</label>
+        <input type="number" id="age" name="Возраст" min="16" max="100" required placeholder="25">
     </div>
+    <div>
+        <label for="birthdate">Дата рождения *</label>
+        <input type="date" id="birthdate" name="Дата_рождения" required>
+    </div>
+</div>
 
     <!-- 4. Email и 5. Телефон в одной строке -->
     <div class="form-group" style="display: flex; row: 20px; flex-wrap: wrap;">
@@ -453,6 +453,7 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
 
 
