@@ -4,165 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация на сайте</title>
-    <style>
-        /* Адаптивность для строк с двумя полями */
-max-width: 600px {
-    .form-group[style*="display: flex"] {
-        flex-direction: column;
-        gap: 0;
+   <style>
+    /* Это стили для красоты */
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
     }
-}
-        /* Это стили для красоты */
-        * {
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
 
-        body {
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding: 40px;
-        }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        
-        input:focus {
-            border-color: #4a6cf7;
-            outline: none;
-        }
-        
-        .checkbox {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .checkbox input {
-            margin-right: 10px;
-            width: auto;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            background: #4a6cf7;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background: #3a5ce5;
-        }
-        
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-        }
-        /* Адаптивные исправления для мобильных */
-max-width: 768px {
-    /* 1. Делаем строки с двумя полями вертикальными */
-    .form-group[style*="display: flex;"] {
-        flex-direction: column !important;
-        gap: 15px !important;
+    body {
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
     }
-    /* 2. Отключаем flex:1 для дочерних блоков, чтобы поля были на всю ширину */
-    .form-group[style*="display: flex;"] > div {
-        flex: unset !important;
+    
+    .container {
         width: 100%;
+        max-width: 500px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        padding: 40px;
     }
 
-    /* 3. Увеличиваем шрифт в чекбоксе согласия на мобильных */
-    .checkbox label {
+    h1, h2 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: bold;
         font-size: 15px;
-        line-height: 1.4;
     }
-
-    /* 4. Гарантируем, что все поля ввода и textarea занимают всю ширину */
+    
+    /* Стили для всех полей ввода */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     input[type="number"],
     input[type="date"],
+    input[type="password"],
     select,
     textarea {
-        width: 100% !important;
-        box-sizing: border-box; /* Важно для правильного расчёта ширины */
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border 0.3s;
+        box-sizing: border-box;
     }
-
-    /* 5. Делаем textarea (для больших текстов) удобнее */
+    
+    input:focus, select:focus, textarea:focus {
+        border-color: #4a6cf7;
+        outline: none;
+    }
+    
+    /* Специально для textarea */
     textarea {
         min-height: 100px;
+        resize: vertical;
     }
+    
+    /* Для строк с двумя полями */
+    .form-group.row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .form-group.row > div {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .checkbox {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .checkbox input {
+        margin-top: 5px;
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    
+    .checkbox label {
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    
+    .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 8px;
+    }
+    
+    .radio-option {
+        display: flex;
+        align-items: center;
+    }
+    
+    .radio-option input {
+        margin-right: 8px;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        background: #4a6cf7;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-top: 10px;
+    }
+    
+    .submit-btn:hover {
+        background: #3a5ce5;
+    }
+    
+    .success-message {
+        display: none;
+        background: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none;
+    }
+    
+    /* Адаптивность для планшетов и телефонов */
+    max-width: 768px {
+        .container {
+            padding: 25px;
+            margin: 10px;
+        }
+        
+        h1 { font-size: 24px; }
+        h2 { font-size: 20px; }
+        
+        /* На узких экранах делаем строки вертикальными */
+        .form-group.row {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group.row > div {
+            width: 100%;
+        }
+        
+        /* Увеличиваем чекбокс и радио */
+        .checkbox {
+            font-size: 14px;
+        }
+        
+        .radio-group {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        input, select, textarea {
+            font-size: 16px; /* Важно для iOS, чтобы не зумилось */
+        }
+    }
+    
+    max-width: 480px {
+        body {
+            padding: 10px;
+        }
+        
+        .container {
+            padding: 20px;
+            border-radius: 8px;
+
+
 }
-    </style>
+        
+        .submit-btn {
+            padding: 18px;
+            font-size: 17px;
+        }
+    }
+</style>
 </head>
 <body>
     <div class="container">
@@ -181,7 +231,7 @@ max-width: 768px {
     </div>
 
     <!-- 2. Возраст и 3. Дата рождения в одной строке -->
-    <div class="form-group" style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div class="form-group" style="display: flex; row: 20px; flex-wrap: wrap;">
         <div style="flex: 1;">
             <label for="age">Возраст *</label>
             <input type="number" id="age" name="Возраст" min="16" max="100" required placeholder="25">
@@ -193,7 +243,7 @@ max-width: 768px {
     </div>
 
     <!-- 4. Email и 5. Телефон в одной строке -->
-    <div class="form-group" style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div class="form-group" style="display: flex; row: 20px; flex-wrap: wrap;">
         <div style="flex: 1;">
             <label for="email">Адрес электронной почты *</label>
             <input type="email" id="email" name="Email" required placeholder="example@mail.com">
@@ -259,10 +309,7 @@ max-width: 768px {
         <label for="svo">Член семьи участника СВО / Участница СВО *</label>
         <select id="svo" name="СВО_статус" required>
             <option value="" disabled selected>-- Выберите вариант --</option>
-            <option value="Нет">Нет<
-
-
-option>
+            <option value="Нет">Нет</option>
             <option value="Член семьи участника СВО">Член семьи участника СВО</option>
             <option value="Участница СВО">Участница СВО</option>
         </select>
@@ -283,7 +330,7 @@ option>
         <h3>✅ Анкета отправлена!</h3>
         <p>Спасибо за вашу заявку. Мы свяжемся с вами в ближайшее время.</p>
     </div>
-</form>/op
+</form>/
     </div>
 
     <script>
@@ -397,6 +444,7 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
 
 
