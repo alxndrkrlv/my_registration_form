@@ -225,13 +225,10 @@ max-width: 768px {
 </head>
 <body>
     <div class="container">
-        <h1>Регистрация</h1>
         
      <form id="registrationForm" method="POST" action="https://formsubmit.co/ВАШ_EMAIL@gmail.com"> <!-- НЕ МЕНЯЙТЕ ЭТОТ ACTION -->
     <input type="hidden" name="_subject" value="Новая заявка с сайта!">
     <input type="hidden" name="_template" value="table">
-
-    <h2>Анкета участника</h2>
 
     <!-- 1. ФИО -->
     <div class="form-group">
@@ -427,7 +424,7 @@ max-width: 768px {
         // Функция для отправки через Formsubmit.co
         async function sendViaFormsubmit(formData) {
             // Замените этот email на СВОЙ реальный email!
-            const yourEmail = 'alxndrkrlv@mail.ru';
+            const yourEmail = 'alxndrkrlv@mail.ru;
 const dataToSend = new FormData();
             dataToSend.append('name', formData.name);
             dataToSend.append('email', formData.email);
@@ -453,6 +450,7 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
 
 
