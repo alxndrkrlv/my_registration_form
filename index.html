@@ -125,41 +125,122 @@
     <div class="container">
         <h1>Регистрация</h1>
         
-        <form id="registrationForm" method="POST" action="https://formsubmit.co/alxndrkrlv@mail.ru">
-            <div class="form-group">
-                <label for="name">Ваше имя *</label>
-                <input type="text" id="name" name="name" required placeholder="Иван Иванов">
-                <div class="error" id="nameError">Пожалуйста, введите имя</div>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required placeholder="ivan@mail.com">
-                <div class="error" id="emailError">Пожалуйста, введите корректный email</div>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Телефон</label>
-                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Пароль *</label>
-                <input type="password" id="password" name="password" required placeholder="Не менее 6 символов">
-<div class="error" id="passwordError">Пароль должен быть не менее 6 символов</div>
-            </div>
-            
-            <div class="checkbox">
-                <input type="checkbox" id="agree" name="agree" required>
-                <label for="agree">Я согласен с условиями использования</label>
-            </div>
-            
-            <button type="submit" class="submit-btn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-            
-            <div id="successMessage" class="success-message">
-                ✅ Регистрация успешна! Данные отправлены.
-            </div>
-        </form>
+     <form id="registrationForm" method="POST" action="https://formsubmit.co/ВАШ_EMAIL@gmail.com"> <!-- НЕ МЕНЯЙТЕ ЭТОТ ACTION -->
+    <input type="hidden" name="_subject" value="Новая заявка с сайта!">
+    <input type="hidden" name="_template" value="table">
+
+    <h2>Анкета участника</h2>
+
+    <!-- 1. ФИО -->
+    <div class="form-group">
+        <label for="fullname">ФИО *</label>
+        <input type="text" id="fullname" name="ФИО" required placeholder="Иванов Иван Иванович">
+    </div>
+
+    <!-- 2. Возраст и 3. Дата рождения в одной строке -->
+    <div class="form-group" style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="flex: 1;">
+            <label for="age">Возраст *</label>
+            <input type="number" id="age" name="Возраст" min="16" max="100" required placeholder="25">
+        </div>
+        <div style="flex: 1;">
+            <label for="birthdate">Дата рождения *</label>
+            <input type="date" id="birthdate" name="Дата_рождения" required>
+        </div>
+    </div>
+
+    <!-- 4. Email и 5. Телефон в одной строке -->
+    <div class="form-group" style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="flex: 1;">
+            <label for="email">Адрес электронной почты *</label>
+            <input type="email" id="email" name="Email" required placeholder="example@mail.com">
+        </div>
+        <div style="flex: 1;">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="Телефон" required placeholder="+7 (999) 123-45-67">
+        </div>
+    </div>
+
+    <!-- 6. Telegram -->
+    <div class="form-group">
+        <label for="telegram">Аккаунт в Telegram *</label>
+        <input type="text" id="telegram" name="Telegram" required placeholder="@username">
+    </div>
+
+    <!-- 7. Опыт предпринимательской деятельности -->
+    <div class="form-group">
+        <label for="business_exp">Опыт предпринимательской деятельности *</label>
+        <textarea id="business_exp" name="Опыт_предпринимательства" rows="3" required placeholder="Опишите ваш опыт, если есть"></textarea>
+    </div>
+
+    <!-- 8. Опыт работы -->
+    <div class="form-group">
+        <label for="work_exp">Опыт работы *</label>
+        <textarea id="work_exp" name="Опыт_работы" rows="3" required placeholder="Опишите ваш профессиональный опыт"></textarea>
+    </div>
+
+    <!-- 9. Предпринимательское образование (да/нет) -->
+    <div class="form-group">
+        <label>Есть ли у вас предпринимательское образование? *</label>
+        <div style="margin-top: 8px;">
+            <label style="display: inline-block; margin-right: 20px;">
+                <input type="radio" name="Образование" value="Да" required> Да
+            </label>
+            <label style="display: inline-block;">
+                <input type="radio" name="Образование" value="Нет" required> Нет
+            </label>
+        </div>
+    </div>
+
+    <!-- 10. Идея для бизнеса -->
+    <div class="form-group">
+        <label for="business_idea">Есть ли у вас идея для бизнеса? Опишите *</label>
+        <textarea id="business_idea" name="Идея_для_бизнеса" rows="4" required placeholder="Подробно опишите вашу бизнес-идею"></textarea>
+    </div>
+
+    <!-- 11. Готовность к очным занятиям (да/нет) -->
+    <div class="form-group">
+        <label>Готовы ли вы посещать очные занятия 4 дня подряд (в случае положительного решения)? *</label>
+        <div style="margin-top: 8px;">
+            <label style="display: inline-block; margin-right: 20px;">
+                <input type="radio" name="Очные_занятия" value="Да" required> Да
+            </label>
+            <label style="display: inline-block;">
+                <input type="radio" name="Очные_занятия" value="Нет" required> Нет
+            </label>
+        </div>
+    </div>
+
+    <!-- 12. Участник СВО / член семьи -->
+    <div class="form-group">
+        <label for="svo">Член семьи участника СВО / Участница СВО *</label>
+        <select id="svo" name="СВО_статус" required>
+            <option value="" disabled selected>-- Выберите вариант --</option>
+            <option value="Нет">Нет<
+
+
+tion>
+            <option value="Член семьи участника СВО">Член семьи участника СВО</option>
+            <option value="Участница СВО">Участница СВО</option>
+        </select>
+    </div>
+
+    <!-- 13. СОГЛАСИЕ (ОБЯЗАТЕЛЬНЫЙ ЧЕКБОКС) -->
+    <div class="form-group checkbox">
+        <input type="checkbox" id="agreement" name="Согласие" required>
+        <label for="agreement">
+            Я даю согласие на обработку моих персональных данных в соответствии с законодательством РФ. *
+        </label>
+    </div>
+
+    <button type="submit" class="submit-btn">Отправить анкету</button>
+
+    <!-- Сообщение об успехе (скрыто изначально) -->
+    <div id="successMessage" class="success-message" style="display:none;">
+        <h3>✅ Анкета отправлена!</h3>
+        <p>Спасибо за вашу заявку. Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+</form>/op
     </div>
 
     <script>
@@ -273,4 +354,5 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
