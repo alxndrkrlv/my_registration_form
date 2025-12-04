@@ -126,6 +126,42 @@ max-width: 600px {
                 font-size: 24px;
             }
         }
+        /* Адаптивные исправления для мобильных */
+max-width: 768px {
+    /* 1. Делаем строки с двумя полями вертикальными */
+    .form-group[style*="display: flex;"] {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    /* 2. Отключаем flex:1 для дочерних блоков, чтобы поля были на всю ширину */
+    .form-group[style*="display: flex;"] > div {
+        flex: unset !important;
+        width: 100%;
+    }
+
+    /* 3. Увеличиваем шрифт в чекбоксе согласия на мобильных */
+    .checkbox label {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    /* 4. Гарантируем, что все поля ввода и textarea занимают всю ширину */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100% !important;
+        box-sizing: border-box; /* Важно для правильного расчёта ширины */
+    }
+
+    /* 5. Делаем textarea (для больших текстов) удобнее */
+    textarea {
+        min-height: 100px;
+    }
+}
     </style>
 </head>
 <body>
@@ -226,7 +262,7 @@ max-width: 600px {
             <option value="Нет">Нет<
 
 
-tion>
+option>
             <option value="Член семьи участника СВО">Член семьи участника СВО</option>
             <option value="Участница СВО">Участница СВО</option>
         </select>
@@ -240,7 +276,7 @@ tion>
         </label>
     </div>
 
-    <button type="submit" class="submit-btn">Отправить анкету</button>
+    <button type="submit" class="submit-btn">ПОДАТЬ ЗАЯВКУ</button>
 
     <!-- Сообщение об успехе (скрыто изначально) -->
     <div id="successMessage" class="success-message" style="display:none;">
@@ -361,6 +397,7 @@ const dataToSend = new FormData();
 
     
 </html>
+
 
 
 
